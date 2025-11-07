@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dracula">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Phehello Ntoahae | Cloud Computing · Web · DevOps</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Optional: analytics (commented out) -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXX');
+    </script>
+    -->
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="#" class="logo">
+            <span class="logo-mark">PN</span>
+            <span class="logo-text">Phehello Ntoahae</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#certs">Certifications</a></li>
+            <li><a href="#cv">CV</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="hamburger" aria-label="open menu" role="button">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>Hello, I'm <span>Phehello Ntoahae</span></h1>
+        <p class="subtitle">Student at WeThinkCode | Cloud Computing | Google Certified — I’m really in pursuit of greatness</p>
+
+        <div class="tagline-container">
+            <div class="tagline">Always eager to learn and adapt in the growing world of technology</div>
+            <div class="divider" style="animation-delay:0.4s;"></div>
+        </div>
+
+        <div class="hero-buttons">
+            <a href="#projects" class="btn">View My Work</a>
+            <a href="#contact" class="btn btn-outline">Get In Touch</a>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="section-title"><h2>About Me</h2></div>
+
+    <div class="about-container fade-in">
+        <div class="about-text">
+            <p>
+                I’m <strong>Phehello Ntoahae</strong> — a curious, hands-on Software Engineering student at <em>WeThinkCode</em>.
+                My path into tech began with a fascination for how cloud systems and code can reshape daily life and business.
+                I enjoy building web apps, automating workflows in the cloud, and learning patterns that make systems resilient and easy to maintain.
+            </p>
+
+            <p>
+                I’m Google Cloud Certified and currently deepening my cloud skills through AWS Educate's Cloud Development track.
+                I also give back as a <strong>technical mentor</strong>, helping others debug, learn best practices, and stay focused when projects get messy.
+            </p>
+
+            <p>
+                Always eager to learn. Always adapting. Always building.
+            </p>
+        </div>
+
+        <div class="about-stats">
+            <div class="stat">
+                <h3>WeThinkCode</h3>
+                <p>Software Engineering — Occupational Certificate</p>
+            </div>
+
+            <div class="stat">
+                <h3>Mentor</h3>
+                <p>Technical mentoring & peer tutoring</p>
+            </div>
+
+            <div class="stat">
+                <h3>Focus</h3>
+                <p>Cloud · Web · DevOps</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <div class="section-title"><h2>Skills</h2></div>
+
+    <div class="skills-container">
+        <div class="skill-category fade-in">
+            <h3>Frontend</h3>
+            <div class="skills-list">
+                <div class="skill-badge"><i class="fab fa-html5"></i> HTML</div>
+                <div class="skill-badge"><i class="fab fa-css3-alt"></i> CSS</div>
+                <div class="skill-badge"><i class="fab fa-js"></i> JavaScript</div>
+            </div>
+        </div>
+
+        <div class="skill-category fade-in">
+            <h3>Backend</h3>
+            <div class="skills-list">
+                <div class="skill-badge"><i class="fab fa-python"></i> Python</div>
+                <div class="skill-badge"><i class="fab fa-java"></i> Java</div>
+                <div class="skill-badge"><i class="fas fa-server"></i> Django · Javalin</div>
+            </div>
+        </div>
+
+        <div class="skill-category fade-in">
+            <h3>Cloud & DevOps</h3>
+            <div class="skills-list">
+                <div class="skill-badge"><i class="fab fa-aws"></i> AWS (Educate)</div>
+                <div class="skill-badge"><i class="fas fa-docker"></i> Docker</div>
+                <div class="skill-badge"><i class="fas fa-code-branch"></i> CI / GitHub Actions</div>
+            </div>
+        </div>
+
+        <div class="skill-category fade-in">
+            <h3>Soft Skills</h3>
+            <div class="skills-list">
+                <div class="skill-badge"><i class="fas fa-users"></i> Team Player</div>
+                <div class="skill-badge"><i class="fas fa-brain"></i> Critical Thinking</div>
+                <div class="skill-badge"><i class="fas fa-hand-rock"></i> Leadership</div>
+                <div class="skill-badge"><i class="fas fa-sync-alt"></i> Adaptability</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <div class="section-title"><h2>Featured Projects</h2></div>
+
+    <div class="projects-wrapper fade-in">
+        <div class="carousel-controls">
+            <button id="prevProject" class="carousel-btn" aria-label="Previous project"><i class="fas fa-chevron-left"></i></button>
+            <button id="nextProject" class="carousel-btn" aria-label="Next project"><i class="fas fa-chevron-right"></i></button>
+        </div>
+
+        <div class="projects-carousel" id="projectsCarousel" tabindex="0">
+            <!-- Project cards (horizontal carousel) -->
+            <div class="project-card" data-project="1">
+                <div class="project-img" style="background-image: url('assets/project-images/useractivity.png');"></div>
+                <div class="project-content">
+                    <h3>GitHub UserActivity</h3>
+                    <p>Dashboard showing GitHub user activity stats and contribution trends. Includes analytics, graphs and quick profile summaries.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">JavaScript</span>
+                        <span class="project-tag">APIs</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-project="2">
+                <div class="project-img" style="background-image: url('assets/project-images/trio-code.png');"></div>
+                <div class="project-content">
+                    <h3>Trio Code</h3>
+                    <p>A collaborative coding platform and mini-IDE built for pair programming exercises and fast feedback loops during workshops.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Django</span>
+                        <span class="project-tag">WebSockets</span>
+                        <span class="project-tag">Realtime</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-project="3">
+                <div class="project-img" style="background-image: url('assets/project-images/moremove.png');"></div>
+                <div class="project-content">
+                    <h3>MoreMove</h3>
+                    <p>Logistics planning tool that simplifies route planning and load assignments for small fleets. Built to demonstrate algorithmic optimization patterns.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Java</span>
+                        <span class="project-tag">Algorithms</span>
+                        <span class="project-tag">Cloud</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Project Modal -->
+<div class="modal" id="projectModal">
+    <div class="modal-content">
+        <span class="close-modal" aria-label="close">&times;</span>
+        <div class="modal-header">
+            <h2 id="modalTitle">Project Title</h2>
+        </div>
+        <img src="" alt="Project Image" class="modal-img" id="modalImage">
+        <div class="modal-tags" id="modalTags"></div>
+        <div id="modalDescription"></div>
+        <div id="modalTechnologies"></div>
+        <div id="modalChallenges"></div>
+        <div class="modal-actions">
+            <a href="#" class="btn" id="modalLink" target="_blank" rel="noopener">View Project (GitHub)</a>
+            <a href="#" class="btn btn-outline" id="modalLive" target="_blank" rel="noopener">View Live</a>
+        </div>
+    </div>
+</div>
+
+<!-- CERTIFICATIONS -->
+<section id="certs">
+    <div class="section-title"><h2>Certifications & Achievements</h2></div>
+
+    <div class="certs-grid fade-in">
+        <div class="cert-tile">
+            <h4>Google Cloud Certified</h4>
+            <p>Cloud Fundamentals — Verified</p>
+        </div>
+        <div class="cert-tile">
+            <h4>AWS Educate</h4>
+            <p>Cloud Development Track</p>
+        </div>
+        <div class="cert-tile">
+            <h4>Technical Mentor</h4>
+            <p>WeThinkCode — Mentorship</p>
+        </div>
+        <!-- add more tiles as needed -->
+    </div>
+</section>
+
+<!-- CV / Timeline -->
+<section id="cv">
+    <div class="section-title"><h2>My Journey</h2></div>
+
+    <div class="cv-container">
+        <div class="cv-download fade-in">
+            <h3>Download My Resume</h3>
+            <p>Full details on education, projects, and certifications.</p>
+            <a href="assets/Phehello_Ntoahae_CV.pdf" id="downloadCV" class="btn" download>
+                <i class="fas fa-download"></i> Download CV
+            </a>
+        </div>
+
+        <div class="timeline fade-in">
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>WeThinkCode — Software Engineering</h3>
+                    <span class="date">2025 - Present</span>
+                    <span class="location">South Africa</span>
+                    <p>Occupational Certificate in Software Engineering. Hands-on projects in web and cloud development.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h3>Technical Mentor</h3>
+                    <span class="date">2025 - Present</span>
+                    <span class="location">WeThinkCode</span>
+                    <p>Mentoring junior students in debugging, best practices, and project workflow.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>AWS Educate — Cloud Developer</h3>
+                    <span class="date">2024 - 2025</span>
+                    <span class="location">AWS Educate</span>
+                    <p>Cloud development training focused on deploying and automating cloud resources.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="section-title"><h2>Get In Touch</h2></div>
+
+    <div class="contact-container fade-in">
+        <div class="contact-info">
+            <h3>Connect With Me</h3>
+            <p>I'm open to graduate programs, internships, and collaborative projects — especially those involving cloud and DevOps workflows.</p>
+
+            <div class="social-links">
+                <a href="https://github.com/your-username" class="social-link" aria-label="GitHub" target="_blank" rel="noopener">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/your-linkedin" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:ntoahaep108@gmail.com" class="social-link" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+
+            <p><strong>Email:</strong> ntoahaep108@gmail.com</p>
+            <p><strong>Location:</strong> South Africa</p>
+        </div>
+
+        <div class="contact-form">
+            <h3>Send Me a Message</h3>
+            <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="contact" />
+                <p class="hidden">
+                    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                </p>
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input id="name" class="form-control" type="text" name="name" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" class="form-control" type="email" name="email" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input id="subject" class="form-control" type="text" name="subject" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" class="form-control" name="message" required></textarea>
+                </div>
+
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <span class="logo-mark">PN</span>
+            <span class="logo-text">Phehello Ntoahae</span>
+        </div>
+        <p>Cloud Computing · Web Development · DevOps</p>
+
+        <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="copyright">© <span id="year"></span> Phehello Ntoahae. All rights reserved.</div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
