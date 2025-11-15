@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
       description: "Dashboard that visualizes a user's GitHub activity, contribution patterns and repository statistics. Useful for quick developer analytics and profiling.",
       technologies: "Python · Flask/Django · JS · Charting",
       challenges: "Diverse API rates and pagination; solved with caching and paginated fetching.",
-      link: "https://github.com/your-username/UserActivity",
+      link: "https://github.com/pirlo47/UserActivity", // <-- UPDATED
       live: ""
     },
     2: {
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
       description: "Collaborative coding environment designed for pair and group exercises. Focused on feedback, simplicity and fast onboarding for workshop attendees.",
       technologies: "Django · Channels · Docker",
       challenges: "Realtime sync and conflict resolution; solved with structured patches.",
-      link: "https://github.com/your-username/trio-code",
+      link: "https://github.com/pirlo47/trio-code", // <-- UPDATED
       live: ""
     },
     3: {
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
       description: "A routing and load optimization tool targeting small fleet logistics. Demonstrates algorithmic optimization combined with cloud-hosted map services.",
       technologies: "Java · Spring Boot · AWS",
       challenges: "Combining heuristics with practical constraints; solved with hybrid algorithms.",
-      link: "https://github.com/your-username/moremove",
+      link: "https://github.com/pirlo47/moremove", // <-- UPDATED
       live: ""
     }
   };

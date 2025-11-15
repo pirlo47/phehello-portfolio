@@ -5,26 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Phehello Ntoahae | Cloud Computing · Web · DevOps</title>
 
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Main stylesheet -->
     <link rel="stylesheet" href="style.css" />
 
-    <!-- Optional: analytics (commented out) -->
-    <!--
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXX');
-    </script>
-    -->
-</head>
+    </head>
 <body>
 
 <header>
@@ -50,7 +37,6 @@
     </nav>
 </header>
 
-<!-- HERO -->
 <section id="home" class="hero">
     <div class="hero-content">
         <h1>Hello, I'm <span>Phehello Ntoahae</span></h1>
@@ -68,7 +54,6 @@
     </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
     <div class="section-title"><h2>About Me</h2></div>
 
@@ -109,7 +94,6 @@
     </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
     <div class="section-title"><h2>Skills</h2></div>
 
@@ -153,7 +137,6 @@
     </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
     <div class="section-title"><h2>Featured Projects</h2></div>
 
@@ -164,16 +147,22 @@
         </div>
 
         <div class="projects-carousel" id="projectsCarousel" tabindex="0">
-            <!-- Project cards (horizontal carousel) -->
             <div class="project-card" data-project="1">
-                <div class="project-img" style="background-image: url('assets/project-images/useractivity.png');"></div>
+                <div class="project-img" style="background-image: url('assets/project-images/github-useractivity.png');"></div>
                 <div class="project-content">
                     <h3>GitHub UserActivity</h3>
-                    <p>Dashboard showing GitHub user activity stats and contribution trends. Includes analytics, graphs and quick profile summaries.</p>
+                    <p>
+                        This is a FastAPI-based REST API that tracks GitHub users and their activity. 
+                        It fetches user details and recent events from the GitHub REST API, 
+                        stores them in PostgreSQL via SQLAlchemy, and exposes them through REST endpoints.
+                    </p>
+
                     <div class="project-tags">
                         <span class="project-tag">Python</span>
-                        <span class="project-tag">JavaScript</span>
+                        <span class="project-tag">PostgreSQL</span>
                         <span class="project-tag">APIs</span>
+                        <span class="project-tag">SQLAlchemy</span>
+                        <span class="project-tag">Docker</span>
                     </div>
                 </div>
             </div>
@@ -182,24 +171,35 @@
                 <div class="project-img" style="background-image: url('assets/project-images/trio-code.png');"></div>
                 <div class="project-content">
                     <h3>Trio Code</h3>
-                    <p>A collaborative coding platform and mini-IDE built for pair programming exercises and fast feedback loops during workshops.</p>
+                    <p>
+                        TrioCode is a lightweight, browser-based HTML/CSS/JavaScript code editor 
+                        that provides an instant playground for web developers and learners. 
+                        Write, run, test, and save web projects directly in the browser no installation required.
+                    </p>
                     <div class="project-tags">
-                        <span class="project-tag">Django</span>
-                        <span class="project-tag">WebSockets</span>
-                        <span class="project-tag">Realtime</span>
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS</span>
+                        <span class="project-tag">JavaScript</span>
                     </div>
                 </div>
             </div>
 
             <div class="project-card" data-project="3">
-                <div class="project-img" style="background-image: url('assets/project-images/moremove.png');"></div>
+                <div class="project-img" style="background-image: url('assets/project-images/more_move.png');"></div>
                 <div class="project-content">
                     <h3>MoreMove</h3>
-                    <p>Logistics planning tool that simplifies route planning and load assignments for small fleets. Built to demonstrate algorithmic optimization patterns.</p>
+                    <p>
+                        MORE MOVE offers unity in the transport industry across Africa. 
+                        As founders, we believe that public transport should not be a hustle to use.
+                        With MORE MOVE, we turn the hustle into a lifestyle in a way that is convenient for the merchant and the user. 
+                    </p>
                     <div class="project-tags">
-                        <span class="project-tag">Java</span>
-                        <span class="project-tag">Algorithms</span>
-                        <span class="project-tag">Cloud</span>
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Django</span>
+                        <span class="project-tag">PowerShell</span>
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS</span>
+                        <span class="project-tag">JavaScript</span>
                     </div>
                 </div>
             </div>
@@ -207,14 +207,13 @@
     </div>
 </section>
 
-<!-- Project Modal -->
 <div class="modal" id="projectModal">
     <div class="modal-content">
         <span class="close-modal" aria-label="close">&times;</span>
         <div class="modal-header">
             <h2 id="modalTitle">Project Title</h2>
         </div>
-        <img src="" alt="Project Image" class="modal-img" id="modalImage">
+        <img src="assets/project-images/github-useractivity.png" alt="Project Image" class="modal-img" id="modalImage">
         <div class="modal-tags" id="modalTags"></div>
         <div id="modalDescription"></div>
         <div id="modalTechnologies"></div>
@@ -226,7 +225,6 @@
     </div>
 </div>
 
-<!-- CERTIFICATIONS -->
 <section id="certs">
     <div class="section-title"><h2>Certifications & Achievements</h2></div>
 
@@ -243,11 +241,25 @@
             <h4>Technical Mentor</h4>
             <p>WeThinkCode — Mentorship</p>
         </div>
-        <!-- add more tiles as needed -->
+        <div class="cert-tile">
+            <h4>Google Cybersecurity</h4>
+            <p>Specialization Certificate </p>
+        </div>
+        <div class="cert-tile">
+            <h4>IT Varsity</h4>
+            <p>Full Stack Development Certificate </p>
+        </div>
+        <div class="cert-tile">
+            <h4>WeThinkCode_</h4>
+            <p>Gen AI Course Certificate </p>
+        </div>
+         <div class="cert-tile">
+            <h4>Microsoft</h4>
+            <p>AI Fluency Course Certificate </p>
+        </div>
     </div>
 </section>
 
-<!-- CV / Timeline -->
 <section id="cv">
     <div class="section-title"><h2>My Journey</h2></div>
 
@@ -255,7 +267,7 @@
         <div class="cv-download fade-in">
             <h3>Download My Resume</h3>
             <p>Full details on education, projects, and certifications.</p>
-            <a href="assets/Phehello_Ntoahae_CV.pdf" id="downloadCV" class="btn" download>
+            <a href="assets/PHEHELLO_Professional_Resume(v2).pdf" id="downloadCV" class="btn" download>
                 <i class="fas fa-download"></i> Download CV
             </a>
         </div>
@@ -264,22 +276,31 @@
             <div class="timeline-item left">
                 <div class="timeline-content">
                     <h3>WeThinkCode — Software Engineering</h3>
-                    <span class="date">2025 - Present</span>
-                    <span class="location">South Africa</span>
-                    <p>Occupational Certificate in Software Engineering. Hands-on projects in web and cloud development.</p>
+                    <span class="date">Sep 2024 - Present</span>
+                    <span class="location">South Africa </span>
+                    <p>Occupational Certificate in Software Engineering. Hands-on projects in web and cloud development. [cite: 9, 11]</p>
                 </div>
             </div>
 
             <div class="timeline-item right">
                 <div class="timeline-content">
                     <h3>Technical Mentor</h3>
-                    <span class="date">2025 - Present</span>
-                    <span class="location">WeThinkCode</span>
-                    <p>Mentoring junior students in debugging, best practices, and project workflow.</p>
+                    <span class="date">Sep 2025 - Present [cite: 22]</span>
+                    <span class="location">WeThinkCode [cite: 21]</span>
+                    <p>Mentoring junior students in debugging, best practices, and project workflow. [cite: 23, 24]</p>
                 </div>
             </div>
 
             <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>Event Coordinator (Volunteering)</h3>
+                    <span class="date">Oct 2024 - Present [cite: 27]</span>
+                    <span class="location">We ThinkCode_ Student Social Wellness Committee [cite: 26]</span>
+                    <p>Promotes student well-being by organizing initiatives and collaborating with peers to create a supportive campus environment. [cite: 28, 29]</p>
+                </div>
+            </div>
+
+            <div class="timeline-item right">
                 <div class="timeline-content">
                     <h3>AWS Educate — Cloud Developer</h3>
                     <span class="date">2024 - 2025</span>
@@ -289,9 +310,8 @@
             </div>
         </div>
     </div>
-</section>
+section>
 
-<!-- CONTACT -->
 <section id="contact">
     <div class="section-title"><h2>Get In Touch</h2></div>
 
@@ -301,10 +321,10 @@
             <p>I'm open to graduate programs, internships, and collaborative projects — especially those involving cloud and DevOps workflows.</p>
 
             <div class="social-links">
-                <a href="https://github.com/your-username" class="social-link" aria-label="GitHub" target="_blank" rel="noopener">
+                <a href="https://github.com/pirlo47" class="social-link" aria-label="GitHub" target="_blank" rel="noopener">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/your-linkedin" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
+                <a href="https://www.linkedin.com/in/phehello-ntoahae" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
                 <a href="mailto:ntoahaep108@gmail.com" class="social-link" aria-label="Email">
@@ -312,8 +332,8 @@
                 </a>
             </div>
 
-            <p><strong>Email:</strong> ntoahaep108@gmail.com</p>
-            <p><strong>Location:</strong> South Africa</p>
+            <p><strong>Email:</strong> ntoahaep108@gmail.com </p>
+            <p><strong>Location:</strong> South Africa </p>
         </div>
 
         <div class="contact-form">
@@ -350,7 +370,6 @@
     </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
     <div class="footer-content">
         <div class="footer-logo">
