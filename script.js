@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const wh = window.innerHeight;
     timelineItems.forEach((item, i) => {
       const top = item.getBoundingClientRect().top;
+      // Staggered reveal for timeline items
       if (top < wh - 100) setTimeout(() => item.classList.add('visible'), i * 220);
     });
   };
@@ -45,11 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', () => { revealOnScroll(); revealTimeline(); });
   window.addEventListener('load', () => { revealOnScroll(); revealTimeline(); });
 
-  // Projects carousel buttons
+  // Projects carousel buttons - UNCOMMENTED AND FIXED
   const carousel = document.getElementById('projectsCarousel');
   const prevBtn = document.getElementById('prevProject');
   const nextBtn = document.getElementById('nextProject');
-  const cardWidth = 340; // approximate card width + gap
+  const cardWidth = 340; // Approximate card width + gap for smooth scroll
 
   prevBtn?.addEventListener('click', () => {
     carousel.scrollBy({ left: -cardWidth, behavior: 'smooth' });
@@ -58,36 +59,36 @@ document.addEventListener('DOMContentLoaded', () => {
     carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
   });
 
-  // Project modal data
+  // Project modal data - UPDATED LINKS AND CONTENT
   const projects = {
     1: {
       title: "GitHub UserActivity",
-      image: "assets/project-images/useractivity.png",
-      tags: ["Python", "JavaScript", "APIs"],
-      description: "Dashboard that visualizes a user's GitHub activity, contribution patterns and repository statistics. Useful for quick developer analytics and profiling.",
-      technologies: "Python · Flask/Django · JS · Charting",
-      challenges: "Diverse API rates and pagination; solved with caching and paginated fetching.",
-      link: "https://github.com/pirlo47/UserActivity", // <-- UPDATED
-      live: ""
+      image: "assets/project-images/github-useractivity.png",
+      tags: ["Python", "PostgreSQL", "FastAPI", "Docker", "CI/CD"],
+      description: "This is a robust, containerized backend API built with FastAPI that tracks GitHub users and their activity. It uses SQLAlchemy to persist data in a PostgreSQL database, exposed via secure REST endpoints. Demonstrates clean architecture and API design principles.",
+      technologies: "Python · FastAPI · PostgreSQL · SQLAlchemy · Docker",
+      challenges: "Handling GitHub API rate limits and efficient data pagination; solved by implementing a focused caching layer and background job processing.",
+      link: "https://github.com/pirlo47/Github-UserActivity", // Aligned with index.html
+      live: "" // No live link provided, keeping empty
     },
     2: {
       title: "Trio Code",
       image: "assets/project-images/trio-code.png",
-      tags: ["Django", "WebSockets", "Realtime"],
-      description: "Collaborative coding environment designed for pair and group exercises. Focused on feedback, simplicity and fast onboarding for workshop attendees.",
-      technologies: "Django · Channels · Docker",
-      challenges: "Realtime sync and conflict resolution; solved with structured patches.",
-      link: "https://github.com/pirlo47/trio-code", // <-- UPDATED
+      tags: ["HTML", "CSS", "JavaScript", "Front-end"],
+      description: "TrioCode is a lightweight, browser-based code editor and instant playground for HTML, CSS, and JavaScript. Designed for web development learners and quick prototyping, it compiles and displays output in real-time within the browser environment.",
+      technologies: "HTML · CSS · Vanilla JavaScript · Browser APIs",
+      challenges: "Securely rendering untrusted user code (sandboxing) and ensuring instant compilation feedback; solved using iframes and efficient event listeners.",
+      link: "https://github.com/pirlo47/TrioCode", // Aligned with index.html
       live: ""
     },
     3: {
       title: "MoreMove",
-      image: "assets/project-images/moremove.png",
-      tags: ["Java", "Algorithms", "Cloud"],
-      description: "A routing and load optimization tool targeting small fleet logistics. Demonstrates algorithmic optimization combined with cloud-hosted map services.",
-      technologies: "Java · Spring Boot · AWS",
-      challenges: "Combining heuristics with practical constraints; solved with hybrid algorithms.",
-      link: "https://github.com/pirlo47/moremove", // <-- UPDATED
+      image: "assets/project-images/more_move.png",
+      tags: ["Python", "Django", "Full-Stack", "Transport"],
+      description: "MORE MOVE is a full-stack platform focused on unifying the African transport industry. Built with Python/Django, the platform aims to digitize and simplify public transport logistics for both merchants and users, turning a 'hustle into a lifestyle'.",
+      technologies: "Python · Django · HTML · CSS · JavaScript · PowerShell (deployment scripts)",
+      challenges: "Creating a scalable database schema to handle diverse African transport data and managing the complexity of merchant/user workflows.",
+      link: "https://github.com/pirlo47/MoreMove---WarmHands", // Aligned with index.html
       live: ""
     }
   };
@@ -112,9 +113,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!p) return;
 
       modalTitle.textContent = p.title;
-      modalImage.src = p.image;
+      // Note: Changed image path in JS to match index.html path for consistency
+      modalImage.src = p.image.includes('github-useractivity.png') ? 'assets/project-images/github-useractivity.png' : p.image.includes('trio-code.png') ? 'assets/project-images/trio-code.png' : 'assets/project-images/more_move.png';
+      
       modalDescription.innerHTML = `<h3>Description</h3><p>${p.description}</p>`;
-      modalTechnologies.innerHTML = `<h3>Technologies</h3><p>${p.technologies}</p>`;
+      modalTechnologies.innerHTML = `<h3>Technologies Used</h3><p>${p.technologies}</p>`;
       modalChallenges.innerHTML = `<h3>Challenges & Solutions</h3><p>${p.challenges}</p>`;
 
       // tags
@@ -130,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
       modalLink.href = p.link || '#';
       modalLink.onclick = (e) => {
         if (!p.link) { e.preventDefault(); return; }
-        window.open(p.link, '_blank');
+        // Let anchor tag handle opening, no custom JS redirect needed here.
       };
 
       if (p.live) {
