@@ -90,6 +90,17 @@ document.addEventListener('DOMContentLoaded', () => {
       challenges: "Creating a scalable database schema to handle diverse African transport data and managing the complexity of merchant/user workflows.",
       link: "https://github.com/pirlo47/MoreMove---WarmHands", // Aligned with index.html
       live: ""
+    }, 
+
+    4: {
+      title: "BrainDump",
+      image: "assets/project-images/BrainDump_Image.png", 
+      tags: ["JavaScript", , "MongoDB", "Express", "Node.js", "React"], 
+      description: "A fully functional, responsive, and beginner-friendly full-stack note-taking application built using the MERN stack (MongoDB, Express, React, Node.js). This project covers everything from API development and database integration to frontend implementation and production deployment.",
+      technologies: "JavaScript · MongoDB · Express · React · Node.js", 
+      challenges: "Mastered the complexity of state synchronization and asynchronous data flow, ensuring your React frontend seamlessly reflects real-time changes from MongoDB/Express backend", 
+      link: "https://github.com/pirlo47/BrainDump_app", 
+      live: ""
     }
   };
 
@@ -114,8 +125,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       modalTitle.textContent = p.title;
       // Note: Changed image path in JS to match index.html path for consistency
-      modalImage.src = p.image.includes('github-useractivity.png') ? 'assets/project-images/github-useractivity.png' : p.image.includes('trio-code.png') ? 'assets/project-images/trio-code.png' : 'assets/project-images/more_move.png';
-      
+modalImage.src = p.image.includes('github-useractivity.png') 
+  ? 'assets/project-images/github-useractivity.png' 
+  : p.image.includes('trio-code.png') 
+  ? 'assets/project-images/trio-code.png' 
+  : p.image.includes('more_move.png') 
+  ? 'assets/project-images/more_move.png' 
+  : 'assets/project-images/BrainDump_Image.png'; // This is the final fallback      
       modalDescription.innerHTML = `<h3>Description</h3><p>${p.description}</p>`;
       modalTechnologies.innerHTML = `<h3>Technologies Used</h3><p>${p.technologies}</p>`;
       modalChallenges.innerHTML = `<h3>Challenges & Solutions</h3><p>${p.challenges}</p>`;
