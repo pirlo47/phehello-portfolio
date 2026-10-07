@@ -1,436 +1,177 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dracula">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Phehello Ntoahae | Cloud Computing · Web · DevOps</title>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css" />
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phehello Ntoahae | Cloud · Web · DevOps</title>
+  <meta name="description" content="Phehello Ntoahae: cloud-focused Software Engineer in Johannesburg. FastAPI, MERN, AWS and Docker, with 23 professional certifications." />
+  <meta name="theme-color" content="#07070d" />
+  <meta property="og:title" content="Phehello Ntoahae | Cloud · Web · DevOps" />
+  <meta property="og:image" content="assets/phehello.jpg" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%237000ff'/><text x='50' y='67' font-size='46' text-anchor='middle' font-family='monospace' font-weight='bold' fill='white'>PN</text></svg>" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <a href="#home" class="skip">Skip to content</a>
+  <div class="glow" aria-hidden="true"></div>
+  <div class="scan" aria-hidden="true"></div>
 
-    <header>
-        <nav>
-            <a href="#" class="logo">
-                <span class="logo-mark">PN</span>
-                <span class="logo-text">Phehello Ntoahae</span>
-            </a>
-
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#certs">Certifications</a></li>
-                <li><a href="#cv">CV</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-
-            <div class="hamburger" aria-label="open menu" role="button">
-                <i class="fas fa-bars"></i>
-            </div>
-        </nav>
-    </header>
-
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Hello World! I am a <span>Cloud-Focused Software Engineering Graduate</span></h1>
-            <p class="subtitle">Software Engineering Graduate | Cloud Developer | Google Cyber Security Certified | In
-                pursuit of greatness</p>
-
-            <div class="tagline-container">
-                <div class="tagline">Always eager to learn and adapt in the growing world of technology</div>
-                <div class="divider" style="animation-delay:0.4s;"></div>
-            </div>
-
-            <div class="hero-buttons">
-                <a href="#projects" class="btn">View My Work</a>
-                <a href="#contact" class="btn btn-outline">Get In Touch</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="about">
-    <div class="container">
-        <div class="section-title">
-            <h2>About Me</h2>
-        </div>
-
-        <div class="about-container fade-in">
-            <div class="about-text">
-                <p>
-                    A curious, hands-on Software Engineering alumnus at <em>WeThinkCode</em>.
-                    My path into tech began with a fascination for how cloud systems and programming can reshape daily
-                    life and business.
-                    I enjoy building solutions, automating workflows, and learning patterns that make systems resilient
-                    and easy to maintain.
-                </p>
-
-                <p>
-                    I’m Google Cybersecurity Certified and currently deepening my cloud skills through AWS Educate's
-                    Cloud Development track. Currently embarking in the journey of being a
-                    fluent DevOps engineer, mastering CI/CD pipelines, containerization with Docker, and infrastructure
-                    as code. 
-                    I also give back as a <strong>technical mentor</strong>, helping others debug, learn best practices,
-                    and stay focused when projects get messy.
-                </p>
-
-                <p>
-                    Always eager to learn. Always adapting. Always building.
-                </p>
-            </div>
-
-            <div class="about-stats">
-                <div class="stat">
-                    <h3>WeThinkCode</h3>
-                    <p>Software Engineering — Occupational Certificate</p>
-                </div>
-
-                <div class="stat">
-                    <h3>Mentor</h3>
-                    <p>Technical mentoring & peer tutoring</p>
-                </div>
-
-                <div class="stat">
-                    <h3>Focus</h3>
-                    <p>Cloud · Web · DevOps</p>
-                </div>
-            </div>
-        </div>
+  <!-- SIDEBAR / TOPBAR -->
+  <aside class="rail">
+    <a href="#home" class="brand"><span class="mark">PN</span><span class="brand-t">Phehello<br>Ntoahae</span></a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><i class="fas fa-bars"></i></button>
+    <nav id="menu" class="menu" aria-label="Main">
+      <a href="#home"><b>00</b>Home</a>
+      <a href="#about"><b>01</b>About</a>
+      <a href="#skills"><b>02</b>Stack</a>
+      <a href="#projects"><b>03</b>Projects</a>
+      <a href="#certs"><b>04</b>Certifications</a>
+      <a href="#journey"><b>05</b>Journey</a>
+      <a href="#contact"><b>06</b>Contact</a>
+    </nav>
+    <div class="rail-foot">
+      <a href="https://github.com/pirlo47" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/phehello-ntoahae" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="mailto:ntoahaep108@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
     </div>
-    </section>
+  </aside>
 
-    <section id="skills">
-    <div class="container">
-        <div class="section-title">
-            <h2>Skills</h2>
-        </div>
-
-        <div class="skills-container">
-            <div class="skill-category fade-in">
-                <h3>Frontend</h3>
-                <div class="skills-list">
-                    <div class="skill-badge"><i class="fab fa-html5"></i> HTML</div>
-                    <div class="skill-badge"><i class="fab fa-css3-alt"></i> CSS</div>
-                    <div class="skill-badge"><i class="fab fa-js"></i> JavaScript</div>
-                    <div class="skill-badge"><i class="fab fa-react"></i> React </div>
-                </div>
-            </div>
-
-            <div class="skill-category fade-in">
-                <h3>Backend</h3>
-                <div class="skills-list">
-                    <div class="skill-badge"><i class="fab fa-python"></i> Python</div>
-                    <div class="skill-badge"><i class="fab fa-java"></i> Java</div>
-                    <div class="skill-badge"><i class="fas fa-server"></i> Django · Javalin · Express.js · Node.js  </div>
-                    <div class="skill-badge"><i class="fas fa-database"></i> FastAPI · SQLAlchemy · PostgreSQL · MongoDB </div>
-                </div>
-            </div>
-
-            <div class="skill-category fade-in">
-                <h3>Cloud & DevOps</h3>
-                <div class="skills-list">
-                    <div class="skill-badge"><i class="fab fa-aws"></i> AWS </div>
-                    <div class="skill-badge"><i class="fas fa-server"></i> Docker</div>
-                    <div class="skill-badge"><i class="fas fa-code-branch"></i> CI / GitHub Actions</div>
-                </div>
-            </div>
-
-            <div class="skill-category fade-in">
-                <h3>Soft Skills</h3>
-                <div class="skills-list">
-                    <div class="skill-badge"><i class="fas fa-users"></i> Team Player</div>
-                    <div class="skill-badge"><i class="fas fa-brain"></i> Critical Thinking</div>
-                    <div class="skill-badge"><i class="fas fa-hand-rock"></i> Leadership</div>
-                    <div class="skill-badge"><i class="fas fa-sync-alt"></i> Adaptability</div>
-                </div>
-            </div>
-        </div>
+  <main>
+  <!-- HOME -->
+  <section id="home" class="hero">
+    <div class="hero-l">
+      <p class="status"><i></i> Software Developer Intern · Safety IO</p>
+      <p class="kicker">$ whoami <span class="jp" lang="ja">// こんにちは</span></p>
+      <h1><span>PHEHELLO</span><span class="out">NTOAHAE</span></h1>
+      <p class="type"><span id="typed"></span><u></u></p>
+      <p class="lead">Software Engineering graduate and technical mentor from Johannesburg. I design resilient APIs and web applications, and I am levelling up into DevOps: CI/CD, containers and infrastructure as code.</p>
+      <div class="cta">
+        <a href="#projects" class="btn">See the work <i class="fas fa-arrow-down"></i></a>
+        <a href="assets/Phehello_Ntoahae_General_Resume.pdf" class="btn ghost" download><i class="fas fa-download"></i> Resume</a>
+      </div>
     </div>
-    </section>
+    <figure class="photo">
+      <div class="frame"><img src="assets/phehello.jpg" alt="Portrait of Phehello Ntoahae" width="450" height="524" /></div>
+      <figcaption><span>PN-001</span> Cloud · Web · DevOps</figcaption>
+    </figure>
+    <ul class="stats">
+      <li><b data-n="23">0</b><span>Certifications</span></li>
+      <li><b data-n="4">0</b><span>Featured projects</span></li>
+      <li><b data-n="3">0</b><span>Focus tracks</span></li>
+      <li><b>Google</b><span>Cybersecurity certified</span></li>
+    </ul>
+  </section>
 
-    <section id="projects">
-    <div class="container">
-        <div class="section-title">
-            <h2>Featured Projects</h2>
-        </div>
-
-        <div class="projects-wrapper fade-in">
-            <div class="carousel-controls">
-                <button id="prevProject" class="carousel-btn" aria-label="Previous project"><i
-                        class="fas fa-chevron-left"></i></button>
-                <button id="nextProject" class="carousel-btn" aria-label="Next project"><i
-                        class="fas fa-chevron-right"></i></button>
-            </div>
-
-            <div class="projects-carousel" id="projectsCarousel" tabindex="0">
-                <div class="project-card" data-project="1">
-                    <div class="project-img"
-                        style="background-image: url('assets/project-images/github-useractivity.png');"></div>
-                    <div class="project-content">
-                        <h3>GitHub UserActivity</h3>
-                        <p>
-                            This is a FastAPI-based REST API that tracks GitHub users and their activity.
-                            It fetches user details and recent events from the GitHub REST API,
-                            stores them in PostgreSQL via SQLAlchemy, and exposes them through REST endpoints.
-                        </p>
-
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">PostgreSQL</span>
-                            <span class="project-tag">APIs</span>
-                            <span class="project-tag">SQLAlchemy</span>
-                            <span class="project-tag">Docker</span>
-                            <a href="https://github.com/pirlo47/Github-UserActivity" class="btn" target="_blank"
-                                rel="noopener">View on GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-project="2">
-                    <div class="project-img" style="background-image: url('assets/project-images/trio-code.png');">
-                    </div>
-                    <div class="project-content">
-                        <h3>Trio Code</h3>
-                        <p>
-                            TrioCode is a lightweight, browser-based HTML/CSS/JavaScript code editor
-                            that provides an instant playground for web developers and learners.
-                            Write, run, test, and save web projects directly in the browser no installation required.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">HTML</span>
-                            <span class="project-tag">CSS</span>
-                            <span class="project-tag">JavaScript</span>
-                            <a href="https://github.com/pirlo47/TrioCode" class="btn" target="_blank"
-                                rel="noopener">View on GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-project="3">
-                    <div class="project-img" style="background-image: url('assets/project-images/more_move.png');">
-                    </div>
-                    <div class="project-content">
-                        <h3>MoreMove</h3>
-                        <p>
-                            MORE MOVE offers unity in the transport industry across Africa.
-                            As founders, we believe that public transport should not be a hustle to use.
-                            With MORE MOVE, we turn the hustle into a lifestyle in a way that is convenient for the
-                            merchant and the user.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Django</span>
-                            <span class="project-tag">PowerShell</span>
-                            <span class="project-tag">HTML</span>
-                            <span class="project-tag">CSS</span>
-                            <span class="project-tag">JavaScript</span>
-                            <a href="https://github.com/pirlo47/MoreMove---WarmHands" class="btn" target="_blank"
-                                rel="noopener">View on GitHub</a>
-
-                        </div>
-                    </div>
-                </div>
-
-                 <div class="project-card" data-project="4">
-                    <div class="project-img" style="background-image: url('assets/project-images/BrainDump_Image.png');">
-                    </div>
-                    <div class="project-content">
-                        <h3>BrainDump</h3>
-                        <p>
-                            A fully functional, responsive, and beginner-friendly full-stack note-taking application built
-                            using the MERN stack (MongoDB, Express, React, Node.js). 
-                            This project covers everything from API development and database integration 
-                            to frontend implementation and production deployment.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">React</span>
-                            <span class="project-tag">Node.js</span>
-                            <span class="project-tag">Express</span>
-                            <span class="project-tag">MongoDB</span>
-                            <span class="project-tag">Redis</span>
-                            <a href="https://github.com/pirlo47/BrainDump_app" class="btn" target="_blank"
-                                rel="noopener">View on GitHub</a>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="eyebrow"><b>01</b> About <span class="jp" lang="ja">自己紹介</span></p>
+    <div class="about">
+      <blockquote class="reveal">Always eager to learn. Always adapting. <em>Always building.</em></blockquote>
+      <div class="about-t reveal">
+        <p>I am a hands-on Software Engineering alumnus of <strong>WeThinkCode_</strong>. My path into tech began with a fascination for how cloud systems and code can reshape daily life and business. I enjoy building solutions, automating workflows and learning the patterns that keep systems resilient.</p>
+        <p>I am Google Cybersecurity certified and hold the AWS Certified Cloud Practitioner credential. I also serve as a <strong>technical mentor</strong>, helping first-year students debug, adopt best practices and stay focused when projects get messy.</p>
+        <p class="aside"><i class="fas fa-torii-gate"></i> Off the clock I am an anime fan. I treat learning like a good story arc: a training montage, an honest setback, and the comeback.</p>
+      </div>
     </div>
-    </section>
-
-    <div class="modal" id="projectModal">
-        <div class="modal-content">
-            <span class="close-modal" aria-label="close">&times;</span>
-            <div class="modal-header">
-                <h2 id="modalTitle">Project Title</h2>
-            </div>
-            <img src="assets/project-images/github-useractivity.png" alt="Project Image" class="modal-img"
-                id="modalImage">
-            <div class="modal-tags" id="modalTags"></div>
-            <div id="modalDescription"></div>
-            <div id="modalTechnologies"></div>
-            <div id="modalChallenges"></div>
-            <div class="modal-actions">
-                <a href="#" class="btn" id="modalLink" target="_blank" rel="noopener">View Project (GitHub)</a>
-                <a href="#" class="btn btn-outline" id="modalLive" target="_blank" rel="noopener">View Live</a>
-            </div>
-        </div>
+    <div class="now reveal">
+      <h3>Currently levelling up</h3>
+      <ul><li>CI/CD pipelines</li><li>Docker &amp; containers</li><li>Infrastructure as code</li><li>AWS cloud development</li></ul>
     </div>
+  </section>
 
-    <section id="certs">
-    <div class="container">
-        <div class="section-title">
-            <h2>Certifications & Achievements</h2>
-        </div>
-
-        <div class="certs-grid fade-in">
-            <div class="cert-tile">
-                <h4>AWS Educate</h4>
-                <p>Cloud Computing training badges</p>
-            </div>
-            <div class="cert-tile">
-                <h4>Google Cybersecurity</h4>
-                <p>Specialization Certificate </p>
-            </div>
-            <div class="cert-tile">
-                <h4>IT Varsity</h4>
-                <p>Full Stack Development Certificate </p>
-            </div>
-            <div class="cert-tile">
-                <h4>WeThinkCode_</h4>
-                <p>Gen AI Course Certificate </p>
-            </div>
-            <div class="cert-tile">
-                <h4>Microsoft</h4>
-                <p>AI Fluency Course Certificate </p>
-            </div>
-        </div>
+  <!-- STACK -->
+  <section id="skills">
+    <p class="eyebrow"><b>02</b> Stack <span class="jp" lang="ja">スキル</span></p>
+    <h2 class="reveal">Tools I build with.</h2>
+    <div class="stack">
+      <div class="reveal"><h3>Frontend</h3><ul>
+        <li><i class="fab fa-html5"></i>HTML</li><li><i class="fab fa-css3-alt"></i>CSS</li><li><i class="fab fa-js"></i>JavaScript</li><li><i class="fab fa-react"></i>React</li></ul></div>
+      <div class="reveal"><h3>Backend</h3><ul>
+        <li><i class="fab fa-python"></i>Python</li><li><i class="fab fa-java"></i>Java</li><li><i class="fab fa-node-js"></i>Node · Express</li><li><i class="fas fa-bolt"></i>FastAPI · Django</li><li><i class="fas fa-database"></i>PostgreSQL · MongoDB</li></ul></div>
+      <div class="reveal"><h3>Cloud &amp; DevOps</h3><ul>
+        <li><i class="fab fa-aws"></i>AWS</li><li><i class="fab fa-docker"></i>Docker</li><li><i class="fas fa-code-branch"></i>GitHub Actions</li><li><i class="fab fa-git-alt"></i>Git</li><li><i class="fas fa-shield-halved"></i>Cybersecurity</li></ul></div>
+      <div class="reveal"><h3>Soft skills</h3><ul>
+        <li><i class="fas fa-chalkboard-user"></i>Mentoring</li><li><i class="fas fa-flag"></i>Leadership</li><li><i class="fas fa-brain"></i>Critical thinking</li><li><i class="fas fa-sync-alt"></i>Adaptability</li></ul></div>
     </div>
-    </section>
+  </section>
 
-    <section id="cv">
-    <div class="container">
-        <div class="section-title"><h2>My Journey</h2></div>
-
-        <div class="cv-container">
-            <div class="cv-download fade-in">
-                <h3>Download My Resume</h3>
-                <a href="assets/Phehello_Ntoahae_General_Resume.pdf" id="downloadCV" class="btn" download>
-                    <i class="fas fa-download"></i> Download CV
-                </a>
-            </div>
-            <div class="timeline fade-in">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Safety IO — Software Developer Intern</h3>
-                        <span class="date">March 2026</span>
-                        <p>Software Developer Internship</p>
-                    </div>
-                </div>
-
-            <div class="timeline fade-in">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>WeThinkCode — Software Engineering</h3>
-                        <span class="date">Sep 2024 - Dec 2025</span>
-                        <p>Occupational Certificate in Software Engineering. Hands-on projects in web and cloud development.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Technical Mentor</h3>
-                        <span class="date">Sep 2025 - Present</span>
-                        <p>Mentoring first year students in debugging, best practices, and project workflow.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Event Coordinator (Volunteering)</h3>
-                        <span class="date">Oct 2024 - November 2025</span>
-                        <p>Promotes student well-being by organizing initiatives and collaborating with peers to create a supportive campus environment.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>AWS Educate — Cloud Developer</h3>
-                        <span class="date">2025</span>
-                        <p>Cloud development training focused on deploying and automating cloud resources.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Tshwane University Of Technology — Information Technology</h3>
-                        <span class="date">Feb 2020 - December 2023</span>
-                        <p>Diploma in Information Technology. Focused on computer networking, virtualization, and information systems.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <!-- PROJECTS -->
+  <section id="projects">
+    <p class="eyebrow"><b>03</b> Projects <span class="jp" lang="ja">作品</span></p>
+    <h2 class="reveal">Selected work.</h2>
+    <div class="deck">
+      <article class="proj" style="--i:0">
+        <img src="assets/project-images/github-useractivity.png" alt="GitHub UserActivity project preview" loading="lazy" />
+        <div><span class="no">01</span><h3>GitHub UserActivity</h3>
+          <p>A containerised FastAPI backend that tracks GitHub users and their recent activity. It pulls data from the GitHub REST API, persists it in PostgreSQL through SQLAlchemy and serves it over clean REST endpoints.</p>
+          <p class="ch"><b>Challenge:</b> working within GitHub API rate limits and paginating data efficiently.</p>
+          <ul class="tags"><li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>SQLAlchemy</li><li>Docker</li></ul>
+          <a class="lnk" href="https://github.com/pirlo47/Github-UserActivity" target="_blank" rel="noopener"><i class="fab fa-github"></i> View source</a></div>
+      </article>
+      <article class="proj" style="--i:1">
+        <img src="assets/project-images/trio-code.png" alt="TrioCode project preview" loading="lazy" />
+        <div><span class="no">02</span><h3>TrioCode</h3>
+          <p>A lightweight, browser-based HTML/CSS/JavaScript playground. Write, run, test and save web projects instantly with no installation, built for learners and quick prototyping.</p>
+          <p class="ch"><b>Challenge:</b> rendering untrusted user code safely with instant feedback, solved with sandboxed iframes.</p>
+          <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+          <a class="lnk" href="https://github.com/pirlo47/TrioCode" target="_blank" rel="noopener"><i class="fab fa-github"></i> View source</a></div>
+      </article>
+      <article class="proj" style="--i:2">
+        <img src="assets/project-images/more_move.png" alt="MoreMove project preview" loading="lazy" />
+        <div><span class="no">03</span><h3>MoreMove</h3>
+          <p>A full-stack platform working towards unity in African public transport, making it convenient for both the merchant and the commuter. Built with Python and Django.</p>
+          <p class="ch"><b>Challenge:</b> designing a scalable schema for diverse transport data and merchant/user workflows.</p>
+          <ul class="tags"><li>Python</li><li>Django</li><li>PowerShell</li><li>JavaScript</li></ul>
+          <a class="lnk" href="https://github.com/pirlo47/MoreMove---WarmHands" target="_blank" rel="noopener"><i class="fab fa-github"></i> View source</a></div>
+      </article>
+      <article class="proj" style="--i:3">
+        <img src="assets/project-images/BrainDump_Image.png" alt="BrainDump project preview" loading="lazy" />
+        <div><span class="no">04</span><h3>BrainDump</h3>
+          <p>A responsive full-stack note-taking app on the MERN stack, covering API design, database integration, the React front end and production deployment.</p>
+          <p class="ch"><b>Challenge:</b> keeping React state in sync with asynchronous data from the Express and MongoDB back end.</p>
+          <ul class="tags"><li>React</li><li>Node.js</li><li>Express</li><li>MongoDB</li><li>Redis</li></ul>
+          <a class="lnk" href="https://github.com/pirlo47/BrainDump_app" target="_blank" rel="noopener"><i class="fab fa-github"></i> View source</a></div>
+      </article>
     </div>
-</section>
+  </section>
 
-    <section id="contact">
-    <div class="container">
-                <div class="section-title">
-                    <h2>Get In Touch</h2>
-                </div>
+  <!-- CERTS -->
+  <section id="certs">
+    <p class="eyebrow"><b>04</b> Certifications <span class="jp" lang="ja">実績</span></p>
+    <h2 class="reveal">23 credentials, still collecting.</h2>
+    <div class="filters" id="filters" role="group" aria-label="Filter certifications"></div>
+    <div class="wall" id="wall"></div>
+  </section>
 
-                <div class="contact-container fade-in">
-                    <div class="contact-info">
-                        <h3>Connect With Me</h3>
-                        <p>I'm open to graduate programs, internships, and collaborative projects, those involving cloud
-                            and DevOps workflows.</p>
+  <!-- JOURNEY -->
+  <section id="journey">
+    <p class="eyebrow"><b>05</b> Journey <span class="jp" lang="ja">軌跡</span></p>
+    <h2 class="reveal">The story so far.</h2>
+    <ol class="log">
+      <li class="reveal now"><time>Mar 2026 — Present</time><h3>Software Developer Intern</h3><span>Safety IO</span><p>Applying cloud and web engineering skills in a professional team.</p></li>
+      <li class="reveal"><time>Sep 2025 — Present</time><h3>Technical Mentor</h3><span>WeThinkCode_</span><p>Mentoring first-year students in debugging, best practices and project workflow.</p></li>
+      <li class="reveal"><time>2025</time><h3>Cloud Developer track</h3><span>AWS Educate</span><p>Training in deploying and automating cloud resources.</p></li>
+      <li class="reveal"><time>Sep 2024 — Dec 2025</time><h3>Software Engineering</h3><span>WeThinkCode_ · Occupational Certificate</span><p>Hands-on projects in web and cloud development.</p></li>
+      <li class="reveal"><time>Oct 2024 — Nov 2025</time><h3>Event Coordinator (Volunteer)</h3><span>WeThinkCode_</span><p>Organised student well-being initiatives and built a supportive campus environment.</p></li>
+      <li class="reveal"><time>Feb 2020 — Dec 2023</time><h3>Diploma in Information Technology</h3><span>Tshwane University of Technology</span><p>Computer networking, virtualisation and information systems.</p></li>
+    </ol>
+  </section>
 
-                        <div class="social-links">
-                            <a href="https://github.com/pirlo47" class="social-link" aria-label="GitHub" target="_blank"
-                                rel="noopener">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/in/phehello-ntoahae" class="social-link"
-                                aria-label="LinkedIn" target="_blank" rel="noopener">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="mailto:ntoahaep108@gmail.com" class="social-link" aria-label="Email">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                        </div>
-
-            <p><strong>Email:</strong> ntoahaep108@gmail.com </p>
-            <p><strong>Location:</strong> Johannesburg South Africa </p>
-        </div>
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <p class="eyebrow"><b>06</b> Contact <span class="jp" lang="ja">連絡</span></p>
+    <h2 class="big reveal">Let's build<br><span class="out">something resilient.</span></h2>
+    <p class="lead reveal">Open to graduate programmes, internships and collaborations, especially in cloud and DevOps.</p>
+    <a class="mail reveal" href="mailto:ntoahaep108@gmail.com">ntoahaep108@gmail.com <i class="fas fa-arrow-up-right-from-square"></i></a>
+    <div class="cta reveal">
+      <a class="btn" href="https://www.linkedin.com/in/phehello-ntoahae" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/pirlo47" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+      <a class="btn ghost" href="assets/PHEHELLO_Professional_Resume(v2).pdf" download><i class="fas fa-download"></i> Professional CV</a>
     </div>
-    </section>
-
-            <footer>
-                <div class="footer-content">
-                    <div class="footer-logo">
-                        <span class="logo-mark">PN</span>
-                        <span class="logo-text">Phehello Ntoahae</span>
-                    </div>
-                    <p>Cloud Computing · Web Development · DevOps</p>
-
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-
-                    <div class="copyright">© <span id="year"></span> Phehello Ntoahae. All rights reserved.</div>
-                </div>
-            </footer>
-
-            <script src="script.js"></script>
+    <footer>© <span id="year"></span> Phehello Ntoahae · Johannesburg, South Africa</footer>
+  </section>
+  </main>
+  <script src="script.js"></script>
 </body>
-
 </html>
