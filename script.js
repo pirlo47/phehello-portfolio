@@ -1,186 +1,91 @@
-// Basic interactivity for phehello-portfolio
+// Phehello Ntoahae — portfolio
+document.documentElement.classList.add('js');
 document.addEventListener('DOMContentLoaded', () => {
-  // Year in footer
-  document.getElementById('year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  $('year').textContent = new Date().getFullYear();
 
-  // Mobile nav toggle
-  const hamburger = document.querySelector('.hamburger');
-  const navLinks = document.querySelector('.nav-links');
-  hamburger?.addEventListener('click', () => navLinks?.classList.toggle('active'));
+  // mobile menu
+  const burger = document.querySelector('.burger'), menu = $('menu');
+  const setMenu = (o) => { menu.classList.toggle('open', o); burger.setAttribute('aria-expanded', o); burger.innerHTML = `<i class="fas fa-${o ? 'xmark' : 'bars'}"></i>`; };
+  burger.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+  menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+  addEventListener('keydown', (e) => e.key === 'Escape' && setMenu(false));
 
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const href = this.getAttribute('href');
-      if (!href || href === '#') return;
-      e.preventDefault();
-      navLinks.classList.remove('active');
-      const target = document.querySelector(href);
-      if (!target) return;
-      const offset = target.offsetTop - 80;
-      window.scrollTo({ top: offset, behavior: 'smooth' });
-    });
+  // cursor spotlight
+  if (!reduce) addEventListener('pointermove', (e) => {
+    document.documentElement.style.setProperty('--mx', e.clientX + 'px');
+    document.documentElement.style.setProperty('--my', e.clientY + 'px');
+  }, { passive: true });
+
+  // typing roles
+  const roles = ['Cloud-Focused Software Engineer', 'Backend & API Developer', 'DevOps in Training', 'Technical Mentor'];
+  const t = $('typed'); let r = 0, c = 0, del = false;
+  (function tick() {
+    if (reduce) { t.textContent = roles[0]; return; }
+    const w = roles[r];
+    t.textContent = w.slice(0, c += del ? -1 : 1);
+    let d = del ? 28 : 65;
+    if (!del && c === w.length) { del = true; d = 1700; }
+    else if (del && c === 0) { del = false; r = (r + 1) % roles.length; d = 350; }
+    setTimeout(tick, d);
+  })();
+
+  // reveal + count-up
+  const io = new IntersectionObserver((es) => es.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  document.querySelectorAll('[data-n]').forEach((el) => {
+    const n = +el.dataset.n; if (reduce) { el.textContent = n; return; }
+    let v = 0; const s = setInterval(() => { el.textContent = ++v; if (v >= n) clearInterval(s); }, 1000 / n + 25);
   });
 
-  // Reveal on scroll (fade-in elements)
-  const fadeElems = document.querySelectorAll('.fade-in');
-  const revealOnScroll = () => {
-    const wh = window.innerHeight;
-    fadeElems.forEach(el => {
-      const top = el.getBoundingClientRect().top;
-      if (top < wh - 100) el.classList.add('visible');
-    });
+  // active nav
+  const links = [...menu.querySelectorAll('a')];
+  const spy = new IntersectionObserver((es) => es.forEach((e) => {
+    if (e.isIntersecting) links.forEach((l) => l.classList.toggle('on', l.getAttribute('href') === '#' + e.target.id));
+  }), { rootMargin: '-40% 0px -55% 0px' });
+  document.querySelectorAll('main section[id]').forEach((s) => spy.observe(s));
+
+  // certifications: [title, issuer, category, icon, featured]
+  const certs = [
+    ['AWS Certified Cloud Practitioner', 'Amazon Web Services', 'cloud', 'fa-brands fa-aws', 1],
+    ['Google Cybersecurity Specialization', 'Google', 'cloud', 'fa-brands fa-google', 1],
+    ['AWS Educate: Cloud Computing Badges', 'AWS Educate', 'cloud', 'fa-brands fa-aws'],
+    ['Network Basics', "O'Reilly", 'cloud', 'fa-solid fa-network-wired'],
+    ['Node.js Essential Training', 'LinkedIn Learning', 'node', 'fa-brands fa-node-js'],
+    ['Learning npm: A Package Manager', 'LinkedIn Learning', 'node', 'fa-brands fa-npm'],
+    ['Express Essentials: Build Powerful Web Apps with Node.js', 'LinkedIn Learning', 'node', 'fa-solid fa-bolt'],
+    ['Building RESTful APIs with Node.js and Express', 'LinkedIn Learning', 'node', 'fa-solid fa-plug'],
+    ['Node.js: Securing RESTful APIs', 'LinkedIn Learning', 'node', 'fa-solid fa-lock'],
+    ['Databases for Node.js Developers', 'LinkedIn Learning', 'node', 'fa-solid fa-database'],
+    ['Node.js: Web Servers, Tests, and Deployment', 'LinkedIn Learning', 'node', 'fa-solid fa-server'],
+    ['Node.js: Testing and Code Quality', 'LinkedIn Learning', 'node', 'fa-solid fa-vial-circle-check'],
+    ['Getting Started in User Experience', 'LinkedIn Learning', 'ux', 'fa-solid fa-compass-drafting'],
+    ['UX Foundations: Research', 'LinkedIn Learning', 'ux', 'fa-solid fa-magnifying-glass-chart'],
+    ['UX Foundations: Usability Testing', 'LinkedIn Learning', 'ux', 'fa-solid fa-users-viewfinder'],
+    ['User Experience for Web Design', 'LinkedIn Learning', 'ux', 'fa-solid fa-pen-ruler'],
+    ['Design Thinking: Understanding the Process', 'LinkedIn Learning', 'ux', 'fa-solid fa-lightbulb'],
+    ['Design Thinking: Implementing the Process', 'LinkedIn Learning', 'ux', 'fa-solid fa-diagram-project'],
+    ['Design Patterns in TypeScript', "O'Reilly", 'dev', 'fa-solid fa-shapes'],
+    ['Use Git Like A Pro', "O'Reilly", 'dev', 'fa-brands fa-git-alt'],
+    ['Full Stack Development Certificate', 'IT Varsity', 'dev', 'fa-solid fa-layer-group'],
+    ['Gen AI Course Certificate', 'WeThinkCode_', 'dev', 'fa-solid fa-robot'],
+    ['AI Fluency Course Certificate', 'Microsoft', 'dev', 'fa-brands fa-microsoft'],
+  ];
+  const cats = { all: 'All', cloud: 'Cloud & Security', node: 'Node.js & Backend', ux: 'UX & Design', dev: 'Dev & AI' };
+  const wall = $('wall'), fl = $('filters');
+  const draw = (k) => {
+    wall.innerHTML = certs.filter((x) => k === 'all' || x[2] === k).map((x, i) =>
+      `<article class="cert${x[4] ? ' star' : ''}" style="animation-delay:${i * 25}ms"><i class="${x[3]}" aria-hidden="true"></i><div><h4>${x[0]}</h4><p>${x[1]}</p></div></article>`).join('');
   };
-
-  // Timeline reveal with stagger
-  const timelineItems = document.querySelectorAll('.timeline-item');
-  const revealTimeline = () => {
-    const wh = window.innerHeight;
-    timelineItems.forEach((item, i) => {
-      const top = item.getBoundingClientRect().top;
-      // Staggered reveal for timeline items
-      if (top < wh - 100) setTimeout(() => item.classList.add('visible'), i * 220);
-    });
-  };
-
-  window.addEventListener('scroll', () => { revealOnScroll(); revealTimeline(); });
-  window.addEventListener('load', () => { revealOnScroll(); revealTimeline(); });
-
-  // Projects carousel buttons - UNCOMMENTED AND FIXED
-  const carousel = document.getElementById('projectsCarousel');
-  const prevBtn = document.getElementById('prevProject');
-  const nextBtn = document.getElementById('nextProject');
-  const cardWidth = 340; // Approximate card width + gap for smooth scroll
-
-  prevBtn?.addEventListener('click', () => {
-    carousel.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+  fl.innerHTML = Object.entries(cats).map(([k, l]) =>
+    `<button data-k="${k}" class="${k === 'all' ? 'on' : ''}" aria-pressed="${k === 'all'}">${l}<span>${k === 'all' ? certs.length : certs.filter((x) => x[2] === k).length}</span></button>`).join('');
+  fl.addEventListener('click', (e) => {
+    const b = e.target.closest('button'); if (!b) return;
+    fl.querySelectorAll('button').forEach((x) => { x.classList.toggle('on', x === b); x.setAttribute('aria-pressed', x === b); });
+    draw(b.dataset.k);
   });
-  nextBtn?.addEventListener('click', () => {
-    carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
-  });
-
-  // Project modal data - UPDATED LINKS AND CONTENT
-  const projects = {
-    1: {
-      title: "GitHub UserActivity",
-      image: "assets/project-images/github-useractivity.png",
-      tags: ["Python", "PostgreSQL", "FastAPI", "Docker", "CI/CD"],
-      description: "This is a robust, containerized backend API built with FastAPI that tracks GitHub users and their activity. It uses SQLAlchemy to persist data in a PostgreSQL database, exposed via secure REST endpoints. Demonstrates clean architecture and API design principles.",
-      technologies: "Python · FastAPI · PostgreSQL · SQLAlchemy · Docker",
-      challenges: "Handling GitHub API rate limits and efficient data pagination; solved by implementing a focused caching layer and background job processing.",
-      link: "https://github.com/pirlo47/Github-UserActivity", // Aligned with index.html
-      live: "" // No live link provided, keeping empty
-    },
-    2: {
-      title: "Trio Code",
-      image: "assets/project-images/trio-code.png",
-      tags: ["HTML", "CSS", "JavaScript", "Front-end"],
-      description: "TrioCode is a lightweight, browser-based code editor and instant playground for HTML, CSS, and JavaScript. Designed for web development learners and quick prototyping, it compiles and displays output in real-time within the browser environment.",
-      technologies: "HTML · CSS · Vanilla JavaScript · Browser APIs",
-      challenges: "Securely rendering untrusted user code (sandboxing) and ensuring instant compilation feedback; solved using iframes and efficient event listeners.",
-      link: "https://github.com/pirlo47/TrioCode", // Aligned with index.html
-      live: ""
-    },
-    3: {
-      title: "MoreMove",
-      image: "assets/project-images/more_move.png",
-      tags: ["Python", "Django", "Full-Stack", "Transport"],
-      description: "MORE MOVE is a full-stack platform focused on unifying the African transport industry. Built with Python/Django, the platform aims to digitize and simplify public transport logistics for both merchants and users, turning a 'hustle into a lifestyle'.",
-      technologies: "Python · Django · HTML · CSS · JavaScript · PowerShell (deployment scripts)",
-      challenges: "Creating a scalable database schema to handle diverse African transport data and managing the complexity of merchant/user workflows.",
-      link: "https://github.com/pirlo47/MoreMove---WarmHands", // Aligned with index.html
-      live: ""
-    }, 
-
-    4: {
-      title: "BrainDump",
-      image: "assets/project-images/BrainDump_Image.png", 
-      tags: ["JavaScript", , "MongoDB", "Express", "Node.js", "React"], 
-      description: "A fully functional, responsive, and beginner-friendly full-stack note-taking application built using the MERN stack (MongoDB, Express, React, Node.js). This project covers everything from API development and database integration to frontend implementation and production deployment.",
-      technologies: "JavaScript · MongoDB · Express · React · Node.js", 
-      challenges: "Mastered the complexity of state synchronization and asynchronous data flow, ensuring your React frontend seamlessly reflects real-time changes from MongoDB/Express backend", 
-      link: "https://github.com/pirlo47/BrainDump_app", 
-      live: ""
-    }
-  };
-
-  // Modal handling
-  const projectCards = document.querySelectorAll('.project-card');
-  const modal = document.getElementById('projectModal');
-  const closeModal = document.querySelector('.close-modal');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalImage = document.getElementById('modalImage');
-  const modalTags = document.getElementById('modalTags');
-  const modalDescription = document.getElementById('modalDescription');
-  const modalTechnologies = document.getElementById('modalTechnologies');
-  const modalChallenges = document.getElementById('modalChallenges');
-  const modalLink = document.getElementById('modalLink');
-  const modalLive = document.getElementById('modalLive');
-
-  projectCards.forEach(card => {
-    card.addEventListener('click', () => {
-      const id = card.getAttribute('data-project');
-      const p = projects[id];
-      if (!p) return;
-
-      modalTitle.textContent = p.title;
-      // Note: Changed image path in JS to match index.html path for consistency
-modalImage.src = p.image.includes('github-useractivity.png') 
-  ? 'assets/project-images/github-useractivity.png' 
-  : p.image.includes('trio-code.png') 
-  ? 'assets/project-images/trio-code.png' 
-  : p.image.includes('more_move.png') 
-  ? 'assets/project-images/more_move.png' 
-  : 'assets/project-images/BrainDump_Image.png'; // This is the final fallback      
-      modalDescription.innerHTML = `<h3>Description</h3><p>${p.description}</p>`;
-      modalTechnologies.innerHTML = `<h3>Technologies Used</h3><p>${p.technologies}</p>`;
-      modalChallenges.innerHTML = `<h3>Challenges & Solutions</h3><p>${p.challenges}</p>`;
-
-      // tags
-      modalTags.innerHTML = '';
-      p.tags.forEach(t => {
-        const el = document.createElement('span');
-        el.className = 'modal-tag';
-        el.textContent = t;
-        modalTags.appendChild(el);
-      });
-
-      // links
-      modalLink.href = p.link || '#';
-      modalLink.onclick = (e) => {
-        if (!p.link) { e.preventDefault(); return; }
-        // Let anchor tag handle opening, no custom JS redirect needed here.
-      };
-
-      if (p.live) {
-        modalLive.style.display = 'inline-block';
-        modalLive.href = p.live;
-      } else {
-        modalLive.style.display = 'none';
-      }
-
-      modal.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    });
-  });
-
-  // close modal
-  closeModal?.addEventListener('click', () => {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-  });
-  window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.style.display = 'none';
-      document.body.style.overflow = 'auto';
-    }
-  });
-
-  // Download CV button (in case you want to track or alter)
-  const downloadCV = document.getElementById('downloadCV');
-  downloadCV?.addEventListener('click', (e) => {
-    // fallback behavior: let browser handle download
-    console.log('CV download started');
-  });
-
+  draw('all');
 });
