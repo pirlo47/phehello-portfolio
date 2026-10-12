@@ -1,0 +1,129 @@
+---
+import { hero, person } from '../data/site';
+const words = hero.headline.split(' ');
+---
+
+<header class="hero">
+  <div class="hero-text">
+    <p class="status"><span class="dot" aria-hidden="true"></span>{hero.status}</p>
+
+    <div class="hero-main">
+      <h1 aria-label={hero.headline}>
+        {words.map((w, i) => <span class="word" style={`--i:${i}`} aria-hidden="true">{w} </span>)}
+      </h1>
+      <p class="lead muted">{hero.lead}</p>
+      <a href="#overview" class="btn">Find out more</a>
+    </div>
+
+    <p class="hero-foot muted">
+      Find me on <a class="inline-link" href={person.github} target="_blank" rel="noopener">GitHub</a>{' '}and{' '}
+      <a class="inline-link" href={person.linkedin} target="_blank" rel="noopener">LinkedIn</a>.<br />
+      Download my <a class="inline-link" href={person.resume.href} download>resume</a> ({person.resume.size})
+    </p>
+  </div>
+
+  <figure class="hero-photo">
+    <img src={person.photo} alt={`Portrait of ${person.name}`} width="900" height="1048" fetchpriority="high" />
+  </figure>
+</header>
+
+<style>
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100svh;
+  }
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 3rem;
+    padding: clamp(1.5rem, 4vw, 4.5rem);
+    background: var(--surface);
+    transition: background-color 0.4s var(--ease);
+  }
+  .status {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.4rem 0.85rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 400;
+  }
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 0 var(--accent);
+    animation: pulse 2.4s infinite;
+  }
+  @keyframes pulse {
+    70% {
+      box-shadow: 0 0 0 7px transparent;
+    }
+  }
+  .hero-main {
+    max-width: 34rem;
+  }
+  h1 {
+    font-size: clamp(2.25rem, 4.2vw, 3.6rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    margin-bottom: 1.75rem;
+  }
+  .word {
+    display: inline-block;
+    white-space: pre;
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(0.3em);
+    animation: word-in 1s var(--ease) forwards;
+    animation-delay: calc(var(--i) * 70ms + 150ms);
+  }
+  @keyframes word-in {
+    to {
+      opacity: 1;
+      filter: none;
+      transform: none;
+    }
+  }
+  .lead {
+    font-size: 1rem;
+    max-width: 26rem;
+    margin-bottom: 2.25rem;
+  }
+  .hero-foot {
+    font-size: 0.8rem;
+    line-height: 1.7;
+  }
+  .hero-photo {
+    position: relative;
+    overflow: hidden;
+    background: #0d0d10;
+  }
+  .hero-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 20%;
+  }
+
+  @media (max-width: 860px) {
+    .hero {
+      grid-template-columns: 1fr;
+    }
+    .hero-text {
+      min-height: 88svh;
+    }
+    .hero-photo {
+      aspect-ratio: 900 / 1048;
+    }
+  }
+</style>

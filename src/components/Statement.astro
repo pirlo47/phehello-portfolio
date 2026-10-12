@@ -1,0 +1,24 @@
+---
+import { statement } from '../data/site';
+---
+
+<section class="wrap section statement" aria-labelledby="statement-title">
+  <h2 id="statement-title" class="label">{statement.label}</h2>
+  {statement.paragraphs.map((p) => <p class="big reveal">{p}</p>)}
+</section>
+
+<style>
+  .big {
+    max-width: 64rem;
+    font-size: clamp(1.5rem, 3.1vw, 2.6rem);
+    line-height: 1.22;
+    letter-spacing: -0.025em;
+    color: var(--mute);
+  }
+  .big + .big {
+    margin-top: 1.5rem;
+  }
+  .big:first-of-type {
+    color: var(--text);
+  }
+</style>

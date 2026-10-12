@@ -1,0 +1,202 @@
+/* Phehello Ntoahae — v3. Minimal dark palette with a single warm amber accent. */
+:root {
+  --bg: #0a0a0a;
+  --surface: #141414;
+  --surface-2: #1d1d1d;
+  --text: #f2f2f2;
+  --mute: #8c8c8c;
+  --line: rgba(255, 255, 255, 0.08);
+  --accent: #f5a742;
+  --btn-bg: #f2f2f2;
+  --btn-fg: #0a0a0a;
+
+  --font: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --radius: 14px;
+  --gutter: clamp(1rem, 3vw, 2.5rem);
+  --max: 1360px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  --bg: #f3f1ec;
+  --surface: #ffffff;
+  --surface-2: #eae7e0;
+  --text: #141414;
+  --mute: #66625c;
+  --line: rgba(0, 0, 0, 0.09);
+  --accent: #b4580a;
+  --btn-bg: #141414;
+  --btn-fg: #f3f1ec;
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: var(--font);
+  font-weight: 300;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background-color 0.4s var(--ease), color 0.4s var(--ease);
+}
+a {
+  color: inherit;
+}
+ul,
+ol {
+  list-style: none;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+}
+.skip:focus {
+  top: 1rem;
+}
+
+.wrap {
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.section {
+  padding-block: clamp(4rem, 10vw, 8rem);
+}
+.label {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+}
+.muted {
+  color: var(--mute);
+}
+.accent {
+  color: var(--accent);
+}
+.inline-link {
+  color: var(--accent);
+  text-underline-offset: 3px;
+}
+.inline-link:hover {
+  text-decoration-thickness: 2px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-decoration: none;
+  transition: transform 0.3s var(--ease), opacity 0.3s;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+.btn.sm {
+  padding: 0.55rem 1.1rem;
+  font-size: 0.8rem;
+}
+
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  transition: background-color 0.4s var(--ease);
+}
+
+/* scroll reveal: only hides content when JS is available */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+}
+.js .reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* infinite marquee: content is duplicated, track slides by half its width */
+.marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee var(--speed, 40s) linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

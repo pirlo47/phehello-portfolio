@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Overview from '../components/Overview.astro';
+import Statement from '../components/Statement.astro';
+import Projects from '../components/Projects.astro';
+import Faq from '../components/Faq.astro';
+import Play from '../components/Play.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base
+  title="Phehello Ntoahae | Software Engineer · Cloud & DevOps"
+  description="Phehello Ntoahae is a software engineer in Johannesburg building resilient APIs, web apps and the pipelines that ship them. Open to Cloud & DevOps roles and freelance work."
+>
+  <Hero />
+  <main id="main">
+    <Overview />
+    <Statement />
+    <Projects />
+    <Faq />
+    <Play />
+  </main>
+  <Footer />
+</Base>
+
+<script>
+  // Fade sections in as they scroll into view
+  const io = new IntersectionObserver(
+    (entries) =>
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      }),
+    { threshold: 0.12 }
+  );
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>

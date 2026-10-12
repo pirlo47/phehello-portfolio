@@ -1,0 +1,50 @@
+---
+import * as icons from 'simple-icons';
+
+interface Props {
+  name: string;
+  slug?: string;
+}
+const { name, slug } = Astro.props;
+const icon = slug ? (icons as Record<string, { path: string }>)[slug] : undefined;
+---
+
+<span class="tech" title={name}>
+  {
+    icon ? (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d={icon.path} />
+      </svg>
+    ) : (
+      <span class="tech-text" aria-hidden="true">{name.toLowerCase()}</span>
+    )
+  }
+  <span class="sr-only">{name}</span>
+</span>
+
+<style>
+  .tech {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 10px;
+    background: var(--surface-2);
+    color: var(--mute);
+    transition: color 0.3s, background-color 0.4s var(--ease);
+  }
+  .tech:hover {
+    color: var(--text);
+  }
+  svg {
+    width: 1.15rem;
+    height: 1.15rem;
+    fill: currentColor;
+  }
+  .tech-text {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+</style>

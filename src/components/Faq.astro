@@ -1,0 +1,221 @@
+---
+import { person, certs, certCategories, journey, stackWeb, stackCloud } from '../data/site';
+
+const certGroups = Object.entries(certCategories).map(([key, label]) => ({
+  label,
+  items: certs.filter((c) => c.cat === key),
+}));
+const stackList = [...stackWeb, ...stackCloud].map((t) => t.name).join(', ');
+---
+
+<section id="faq" class="wrap section" aria-labelledby="faq-title">
+  <h2 id="faq-title" class="title">Frequently asked questions</h2>
+
+  <div class="faq">
+    <details class="item reveal" open>
+      <summary><span class="num">01</span><span class="q">What kind of work are you looking for?</span><span class="icon" aria-hidden="true"></span></summary>
+      <div class="a">
+        <p>I’m looking for graduate programmes and junior roles in software engineering, especially where I can grow into cloud and DevOps work. I’m currently a Software Developer Intern at Safety IO.</p>
+        <p>I also take on freelance and side projects: APIs, backend services, full-stack web apps, or help containerising and deploying something you’ve already built.</p>
+      </div>
+    </details>
+
+    <details class="item reveal">
+      <summary><span class="num">02</span><span class="q">What’s your tech stack?</span><span class="icon" aria-hidden="true"></span></summary>
+      <div class="a">
+        <p>Day to day I work with {stackList}.</p>
+        <p>I’m most at home building REST APIs in Python (FastAPI, Django) or Node.js (Express), backed by PostgreSQL or MongoDB, then packaging them with Docker and automating delivery with GitHub Actions.</p>
+      </div>
+    </details>
+
+    <details class="item reveal">
+      <summary><span class="num">03</span><span class="q">What certifications do you hold?</span><span class="icon" aria-hidden="true"></span></summary>
+      <div class="a">
+        <p>{certs.length} so far, and still collecting. The headline ones are the <strong>AWS Certified Cloud Practitioner</strong> and the <strong>Google Cybersecurity Specialization</strong>.</p>
+        <div class="certs">
+          {
+            certGroups.map((g) => (
+              <div>
+                <h3 class="group">{g.label} <span class="muted">{g.items.length}</span></h3>
+                <ul>
+                  {g.items.map((c) => (
+                    <li>
+                      {c.title} <span class="muted">· {c.issuer}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </details>
+
+    <details class="item reveal">
+      <summary><span class="num">04</span><span class="q">What’s your background?</span><span class="icon" aria-hidden="true"></span></summary>
+      <div class="a">
+        <p>I studied IT at Tshwane University of Technology, then trained as a software engineer at WeThinkCode_, where I now mentor first-year students. Here’s the story so far:</p>
+        <ol class="timeline">
+          {
+            journey.map((j) => (
+              <li>
+                <span class="when muted">{j.when}</span>
+                <span>
+                  <strong>{j.title}</strong> <span class="muted">· {j.where}</span>
+                  <br />
+                  <span class="muted">{j.text}</span>
+                </span>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </details>
+
+    <details class="item reveal">
+      <summary><span class="num">05</span><span class="q">Can I see more of your work?</span><span class="icon" aria-hidden="true"></span></summary>
+      <div class="a">
+        <p>The projects above are a selection. Everything else, including experiments and work in progress, is on <a class="inline-link" href={person.github} target="_blank" rel="noopener">my GitHub</a>.</p>
+        <p>For a fuller picture of my experience, download my <a class="inline-link" href={person.cv.href} download>professional CV</a> ({person.cv.size}).</p>
+      </div>
+    </details>
+
+    <details class="item reveal">
+      <summary><span class="num">06</span><span class="q">How can we work together?</span><span class="icon" aria-hidden="true"></span></summary>
+      <div class="a">
+        <p>Email me at <a class="inline-link" href={`mailto:${person.email}`}>{person.email}</a>. For roles, include the team and what you’re building. For projects, include the scope, timeline and budget. The more detail the better.</p>
+        <p>You can also reach me on <a class="inline-link" href={person.linkedin} target="_blank" rel="noopener">LinkedIn</a>.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<style>
+  .title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    letter-spacing: -0.03em;
+    margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  }
+  .faq {
+    border-top: 1px solid var(--line);
+  }
+  .item {
+    border-bottom: 1px solid var(--line);
+  }
+  summary {
+    display: grid;
+    grid-template-columns: 4rem 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    padding-block: 1.5rem;
+    cursor: pointer;
+    list-style: none;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  .num {
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+  .q {
+    font-size: clamp(1.15rem, 2vw, 1.6rem);
+    letter-spacing: -0.02em;
+    transition: color 0.2s;
+  }
+  summary:hover .q {
+    color: var(--accent);
+  }
+  .icon {
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+  }
+  .icon::before,
+  .icon::after {
+    content: '';
+    position: absolute;
+    inset: 50% 0 auto;
+    height: 1.5px;
+    background: currentColor;
+    transition: transform 0.4s var(--ease);
+  }
+  .icon::after {
+    transform: rotate(90deg);
+  }
+  .item[open] .icon::after {
+    transform: rotate(0deg);
+  }
+  .a {
+    padding: 0 0 2rem 5rem;
+    max-width: 52rem;
+    color: var(--mute);
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+  .a > p + p,
+  .a > p + div,
+  .a > p + ol {
+    margin-top: 1rem;
+  }
+  .a strong {
+    font-weight: 400;
+    color: var(--text);
+  }
+  .item[open] .a {
+    animation: open 0.5s var(--ease);
+  }
+  @keyframes open {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+  }
+
+  .certs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1.5rem 2rem;
+  }
+  .group {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+  .certs li {
+    font-size: 0.85rem;
+    color: var(--text);
+    padding-block: 0.3rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .timeline li {
+    display: grid;
+    grid-template-columns: 10rem 1fr;
+    gap: 1rem;
+    padding-block: 0.75rem;
+    border-bottom: 1px solid var(--line);
+    color: var(--text);
+    font-size: 0.9rem;
+  }
+  .when {
+    font-size: 0.8rem;
+    padding-top: 0.15rem;
+  }
+
+  @media (max-width: 640px) {
+    summary {
+      grid-template-columns: 2.5rem 1fr auto;
+    }
+    .a {
+      padding-left: 0;
+    }
+    .timeline li {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+    }
+  }
+</style>

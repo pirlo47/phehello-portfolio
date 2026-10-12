@@ -1,0 +1,412 @@
+---
+import TechIcon from './TechIcon.astro';
+import { person, levellingUp, stackWeb, stackCloud, organisations } from '../data/site';
+const pipeline = ['commit', 'test', 'build', 'deploy'];
+---
+
+<section id="overview" class="wrap overview" aria-labelledby="overview-title">
+  <h2 id="overview-title" class="sr-only">Overview</h2>
+
+  <div class="grid">
+    <!-- intro + clock -->
+    <article class="card intro reveal">
+      <div>
+        <p class="intro-title accent">Software engineer taking ideas from API design all the way to deployment.</p>
+        <p class="intro-text muted">
+          Looking for a graduate role or a hand on your next build? Get in touch and tell me what you’re working on.
+        </p>
+        <a class="btn sm" href={`mailto:${person.email}`}>Say hello</a>
+      </div>
+      <div class="clock" data-clock data-tz={person.timeZone}>
+        <p class="muted" data-date>&nbsp;</p>
+        <p class="time" data-time>&nbsp;</p>
+        <p class="tz muted">Johannesburg, SAST</p>
+      </div>
+    </article>
+
+    <!-- levelling-up carousel -->
+    <article class="card carousel reveal" data-carousel aria-roledescription="carousel" aria-label="Currently levelling up">
+      <p class="label">Currently levelling up</p>
+      <div class="slides">
+        {
+          levellingUp.map((s, i) => (
+            <div
+              class:list={['slide', { on: i === 0 }]}
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`${i + 1} of ${levellingUp.length}`}
+              aria-hidden={i === 0 ? 'false' : 'true'}
+            >
+              <p class="slide-text">{s.text}</p>
+              <p class="slide-title">{s.title}</p>
+              <p class="slide-meta muted">{s.meta}</p>
+            </div>
+          ))
+        }
+      </div>
+      <div class="controls">
+        <div class="dots">
+          {
+            levellingUp.map((s, i) => (
+              <button class:list={['dot', { on: i === 0 }]} data-go={i} aria-label={`Go to ${s.title}`}></button>
+            ))
+          }
+        </div>
+        <div class="arrows">
+          <button data-prev aria-label="Previous item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6" /></svg>
+          </button>
+          <button data-next aria-label="Next item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6" /></svg>
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- stack cards -->
+    <div class="side">
+      <article class="card mini reveal">
+        <h3 class="label">Web development</h3>
+        <p class="mini-text muted">APIs and full-stack web apps, from the database schema to the browser.</p>
+        <div class="marquee" style="--speed:35s">
+          <div class="marquee-track icons">
+            {stackWeb.map((t) => <TechIcon {...t} />)}
+            <span class="dup" aria-hidden="true">{stackWeb.map((t) => <TechIcon {...t} />)}</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card mini reveal">
+        <h3 class="label">Cloud &amp; DevOps</h3>
+        <p class="mini-text muted">Containerised, automated and shipped to AWS.</p>
+        <ol class="pipeline" aria-label="CI/CD pipeline">
+          {
+            pipeline.map((step, i) => (
+              <li style={`--i:${i}`}>
+                <span class="tick" aria-hidden="true" />
+                {step}
+              </li>
+            ))
+          }
+        </ol>
+        <div class="icons static">
+          {stackCloud.map((t) => <TechIcon {...t} />)}
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="marquee orgs reveal" style="--speed:60s" aria-label="Where I’ve worked and learned">
+    <ul class="marquee-track">
+      {[...organisations, ...organisations].map((o, i) => <li aria-hidden={i >= organisations.length ? 'true' : undefined}>{o}</li>)}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .overview {
+    padding-top: var(--gutter);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 2.1fr 1fr;
+    gap: 0.75rem;
+  }
+  .card {
+    padding: clamp(1.25rem, 2vw, 1.75rem);
+  }
+
+  /* intro */
+  .intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2.5rem;
+  }
+  .intro-title {
+    font-size: clamp(1.2rem, 1.6vw, 1.45rem);
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    margin-bottom: 1rem;
+  }
+  .intro-text {
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+  .clock {
+    font-size: 0.85rem;
+  }
+  .time {
+    font-size: clamp(1.6rem, 2.3vw, 2rem);
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+  }
+  .tz {
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+  }
+
+  /* carousel */
+  .carousel {
+    display: flex;
+    flex-direction: column;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+  }
+  .slides {
+    display: grid;
+    flex: 1;
+  }
+  .slide {
+    grid-area: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(12px);
+    visibility: hidden;
+    transition: opacity 0.6s var(--ease), transform 0.6s var(--ease), visibility 0.6s;
+  }
+  .slide.on {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+  }
+  .slide-text {
+    font-size: clamp(1.35rem, 2.3vw, 2rem);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    margin-bottom: auto;
+    padding-bottom: 2rem;
+  }
+  .slide-title {
+    font-size: 0.95rem;
+    font-weight: 400;
+  }
+  .slide-meta {
+    font-size: 0.8rem;
+  }
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.75rem;
+  }
+  .dots {
+    display: flex;
+    gap: 0.25rem;
+  }
+  .dot {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: grid;
+    place-items: center;
+  }
+  .dot::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--mute);
+    opacity: 0.5;
+    transition: width 0.4s var(--ease), background-color 0.3s, opacity 0.3s;
+  }
+  .dot.on::before {
+    width: 18px;
+    background: var(--accent);
+    opacity: 1;
+  }
+  .arrows {
+    display: flex;
+    gap: 0.25rem;
+  }
+  .arrows button {
+    width: 2.25rem;
+    height: 2.25rem;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: var(--mute);
+    transition: color 0.2s, background-color 0.2s;
+  }
+  .arrows button:hover {
+    color: var(--text);
+    background: var(--surface-2);
+  }
+  .arrows svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* side cards */
+  .side {
+    display: grid;
+    gap: 0.75rem;
+  }
+  .mini {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    overflow: hidden;
+  }
+  .mini .label {
+    margin-bottom: 0.25rem;
+  }
+  .mini-text {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  .icons {
+    gap: 0.5rem;
+  }
+  .icons.static {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: auto;
+  }
+  /* track = [icons][gap][dup + trailing gap] so translateX(-50%) loops seamlessly */
+  .marquee-track.icons {
+    gap: 0.5rem;
+  }
+  .dup {
+    display: flex;
+    gap: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .marquee {
+    margin-top: auto;
+  }
+
+  .pipeline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-bottom: 1rem;
+    font-size: 0.72rem;
+    font-weight: 400;
+  }
+  .pipeline li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    color: var(--mute);
+    animation: step 6s infinite;
+    animation-delay: calc(var(--i) * 0.6s);
+  }
+  .tick {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+  @keyframes step {
+    0%,
+    8% {
+      color: var(--mute);
+      border-color: var(--line);
+    }
+    12%,
+    70% {
+      color: var(--accent);
+      border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+    }
+    85%,
+    100% {
+      color: var(--mute);
+      border-color: var(--line);
+    }
+  }
+
+  /* organisations strip */
+  .orgs {
+    margin-top: clamp(3rem, 6vw, 5rem);
+  }
+  .orgs li {
+    flex: none;
+    padding-inline: clamp(1.5rem, 3vw, 3rem);
+    font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    color: var(--mute);
+    opacity: 0.7;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 1080px) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .carousel {
+      grid-column: 1 / -1;
+      grid-row: 1;
+      min-height: 22rem;
+    }
+  }
+  @media (max-width: 640px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+    .carousel {
+      grid-row: auto;
+    }
+  }
+</style>
+
+<script>
+  // Live clock in Johannesburg time
+  const clock = document.querySelector<HTMLElement>('[data-clock]');
+  if (clock) {
+    const timeZone = clock.dataset.tz;
+    const dateFmt = new Intl.DateTimeFormat('en-GB', { timeZone, weekday: 'long', day: 'numeric', month: 'long' });
+    const timeFmt = new Intl.DateTimeFormat('en-GB', { timeZone, hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+    const dateEl = clock.querySelector('[data-date]')!;
+    const timeEl = clock.querySelector('[data-time]')!;
+    const tick = () => {
+      const now = new Date();
+      dateEl.textContent = dateFmt.format(now).replace(/^(\w+) /, '$1, ');
+      timeEl.textContent = timeFmt.format(now);
+    };
+    tick();
+    setInterval(tick, 1000);
+  }
+
+  // Levelling-up carousel
+  const root = document.querySelector<HTMLElement>('[data-carousel]');
+  if (root) {
+    const slides = [...root.querySelectorAll<HTMLElement>('.slide')];
+    const dots = [...root.querySelectorAll<HTMLElement>('[data-go]')];
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let current = 0;
+    let timer: number | undefined;
+
+    const show = (n: number) => {
+      current = (n + slides.length) % slides.length;
+      slides.forEach((s, i) => {
+        s.classList.toggle('on', i === current);
+        s.setAttribute('aria-hidden', String(i !== current));
+      });
+      dots.forEach((d, i) => d.classList.toggle('on', i === current));
+    };
+    const stop = () => clearInterval(timer);
+    const start = () => {
+      stop();
+      if (!reduce) timer = window.setInterval(() => show(current + 1), 7000);
+    };
+
+    root.querySelector('[data-prev]')!.addEventListener('click', () => (show(current - 1), start()));
+    root.querySelector('[data-next]')!.addEventListener('click', () => (show(current + 1), start()));
+    dots.forEach((d) => d.addEventListener('click', () => (show(Number(d.dataset.go)), start())));
+    root.addEventListener('pointerenter', stop);
+    root.addEventListener('pointerleave', start);
+    root.addEventListener('focusin', stop);
+    root.addEventListener('focusout', start);
+    start();
+  }
+</script>

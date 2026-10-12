@@ -1,0 +1,69 @@
+---
+import { person } from '../data/site';
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="wrap inner">
+    <div>
+      <p class="label">Let’s build something resilient.</p>
+      <a class="mail" href={`mailto:${person.email}`}>{person.email}</a>
+    </div>
+    <ul class="links">
+      <li><a href={person.github} target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href={person.linkedin} target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href={person.resume.href} download>Resume</a></li>
+      <li><a href={person.cv.href} download>Professional CV</a></li>
+    </ul>
+    <p class="legal muted">© {year} {person.name} · {person.location}</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--surface);
+    margin-top: clamp(2rem, 6vw, 4rem);
+    transition: background-color 0.4s var(--ease);
+  }
+  .inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem 2rem;
+    padding-block: clamp(3rem, 8vw, 6rem) 2rem;
+  }
+  .mail {
+    font-size: clamp(1.5rem, 4.5vw, 3.5rem);
+    letter-spacing: -0.03em;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    transition: color 0.2s;
+  }
+  .mail:hover {
+    color: var(--accent);
+  }
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+  }
+  .links a {
+    text-decoration: none;
+    color: var(--mute);
+    transition: color 0.2s;
+  }
+  .links a:hover {
+    color: var(--text);
+  }
+  .legal {
+    grid-column: 1 / -1;
+    font-size: 0.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+  }
+  @media (max-width: 640px) {
+    .inner {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

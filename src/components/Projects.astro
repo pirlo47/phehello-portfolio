@@ -1,0 +1,99 @@
+---
+import { projects, projectsIntro } from '../data/site';
+---
+
+<section id="projects" class="wrap section" aria-labelledby="projects-title">
+  <header class="head">
+    <h2 id="projects-title" class="title">Projects</h2>
+    <p class="muted intro">{projectsIntro}</p>
+  </header>
+
+  <div class="list">
+    {
+      projects.map((p) => (
+        <article class="card project reveal">
+          <div class="body">
+            <h3 class="name accent">{p.name}</h3>
+            <p class="text">{p.text}</p>
+            <a class="btn sm" href={p.href} target="_blank" rel="noopener">
+              View source <span class="sr-only">for {p.name} on GitHub</span>
+            </a>
+          </div>
+          <div class="media">
+            <img src={p.image} alt="" loading="lazy" width="1024" height="1024" />
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .head {
+    margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  }
+  .title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+  }
+  .intro {
+    max-width: 26rem;
+    font-size: 0.9rem;
+  }
+  .list {
+    display: grid;
+    gap: 0.75rem;
+  }
+  .project {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: clamp(22rem, 40vw, 34rem);
+    overflow: hidden;
+  }
+  .body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: clamp(1.5rem, 4vw, 4rem);
+  }
+  .name {
+    font-size: 0.95rem;
+    font-weight: 400;
+  }
+  .text {
+    font-size: clamp(1.25rem, 2.2vw, 1.85rem);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    max-width: 30rem;
+  }
+  .media {
+    position: relative;
+    overflow: hidden;
+    background: var(--surface-2);
+  }
+  .media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s var(--ease);
+  }
+  .project:hover .media img {
+    transform: scale(1.04);
+  }
+
+  @media (max-width: 760px) {
+    .project {
+      grid-template-columns: 1fr;
+    }
+    .media {
+      order: -1;
+      aspect-ratio: 4 / 3;
+    }
+  }
+</style>
